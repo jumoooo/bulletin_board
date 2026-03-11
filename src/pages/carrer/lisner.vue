@@ -81,10 +81,10 @@
           </h2>
           <q-card class="project-card">
             <CustomTabs
-              :mainTabs="webMainTabs"
-              :mainDefault="'web'"
-              :subTabs="webSubTabs"
-              @clickImage="clickImage"
+              :main-tabs="webMainTabs"
+              :main-default="'web'"
+              :sub-tabs="webSubTabs"
+              @click-image="clickImage"
             />
           </q-card>
         </div>
@@ -135,10 +135,10 @@
           </h2>
           <q-card class="project-card">
             <CustomTabs
-              :mainTabs="mesMainTabs"
-              :mainDefault="'mes'"
-              :subTabs="mesSubTabs"
-              @clickImage="clickImage"
+              :main-tabs="mesMainTabs"
+              :main-default="'mes'"
+              :sub-tabs="mesSubTabs"
+              @click-image="clickImage"
             />
           </q-card>
         </div>
@@ -147,10 +147,10 @@
   </section>
 
   <!-- 이미지 다이얼로그 -->
-  <q-dialog v-model="isClickImage" v-if="!isMobileScreen">
+  <q-dialog v-if="!isMobileScreen" v-model="isClickImage">
     <q-card class="dialog-card">
       <q-card-section class="dialog-content">
-        <q-btn icon="close" flat round dense class="close-btn" v-close-popup />
+        <q-btn v-close-popup icon="close" flat round dense class="close-btn" />
         <img class="dialog-img" :src="selectedImgLink" alt="Project Image" />
       </q-card-section>
     </q-card>

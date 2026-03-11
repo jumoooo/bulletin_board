@@ -29,7 +29,7 @@
           <ais-search-box class="web_search_box" />
           <q-separator spaced />
           <ais-hits :transform-items="transformItems">
-            <template v-slot="{ items }">
+            <template #default="{ items }">
               <PostList :items="items" />
             </template>
           </ais-hits>

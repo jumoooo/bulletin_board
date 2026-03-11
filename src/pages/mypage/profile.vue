@@ -7,12 +7,7 @@
       :submit-label="t('save_01')"
       @submit="handleSubmitProfile"
     >
-      <q-input
-        v-model="displayName"
-        outlined
-        dense
-        :label="t('nickname')"
-      />
+      <q-input v-model="displayName" outlined dense :label="t('nickname')" />
     </SettingFormCard>
 
     <!-- 이메일 변경 폼 -->
@@ -31,7 +26,7 @@
 import { useQuasar } from 'quasar';
 import SettingFormCard from 'src/components/base/SettingFormCard.vue';
 import { useAsyncState } from '@vueuse/core';
-import { updateuserEmail, updateuserProfile } from 'src/services';
+import { updateUserEmail, updateUserProfile } from 'src/services';
 import { useAuthStore } from 'src/stores/auth';
 import { ref, watchEffect } from 'vue';
 import { getErrorMessage } from 'src/utils/firebase/error-message';
@@ -42,7 +37,7 @@ const $q = useQuasar();
 const { t } = useI18n();
 
 const { isLoading: isLoadingProfile, execute: executeProfile } = useAsyncState(
-  updateuserProfile,
+  updateUserProfile,
   null,
   {
     immediate: false,
@@ -67,7 +62,7 @@ const handleSubmitProfile = () => executeProfile(0, displayName.value);
 // };
 
 const { isLoading: isLoadingEmail, execute: executeEmail } = useAsyncState(
-  updateuserEmail,
+  updateUserEmail,
   null,
   {
     immediate: false,

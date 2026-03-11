@@ -2,9 +2,9 @@
   <q-dialog
     persistent
     v-bind="$attrs"
-    @hide="onHide"
     transition-show="none"
     transition-hide="none"
+    @hide="onHide"
   >
     <q-card :style="{ minwidth: '660px' }">
       <q-toolbar>

@@ -28,8 +28,8 @@
           flat
           round
           color="grey"
-          @click="execute"
           aria-label="Research"
+          @click="execute"
         />
       </q-card-section>
       <q-card-section class="q-pb-sm">

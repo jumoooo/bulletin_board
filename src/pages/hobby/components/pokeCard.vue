@@ -1,7 +1,7 @@
 <template>
   <div
-    class="card-container"
     ref="cardRef"
+    class="card-container"
     @mousemove="handleMouseMove"
     @mouseleave="resetCard"
   >
@@ -12,7 +12,7 @@
         loading="lazy"
         class="card-img"
       />
-      <div class="overlay" ref="overlayRef"></div>
+      <div ref="overlayRef" class="overlay"></div>
     </div>
   </div>
 </template>

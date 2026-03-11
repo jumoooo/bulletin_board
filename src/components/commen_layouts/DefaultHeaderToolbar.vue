@@ -3,7 +3,7 @@
     <q-btn flat dense to="/">
       <q-toolbar-title class="flex flex-center">
         <img class="main_logo" src="/assets/main_logo.png" alt="헤더 로고" />
-        <span class="title-text" v-if="!isMobileScreen"
+        <span v-if="!isMobileScreen" class="title-text"
           >코드로 완성한 픽셀</span
         >
       </q-toolbar-title>
@@ -13,12 +13,12 @@
       <q-btn stretch flat to="/">
         <span v-if="!isMobileScreen">{{ $t('board') }}</span>
         <q-tooltip v-if="isMobileScreen"> {{ $t('board') }} </q-tooltip>
-        <q-icon name="assignment" v-if="isMobileScreen" />
+        <q-icon v-if="isMobileScreen" name="assignment" />
       </q-btn>
       <q-btn stretch flat to="/about">
         <span v-if="!isMobileScreen">{{ $t('about') }}</span>
         <q-tooltip v-if="isMobileScreen"> {{ $t('about') }} </q-tooltip>
-        <q-icon name="info" v-if="isMobileScreen" />
+        <q-icon v-if="isMobileScreen" name="info" />
       </q-btn>
       <!-- <q-btn stretch flat>
         <span v-if="!isMobileScreen">{{ $t('hobby') }}</span>
@@ -50,7 +50,7 @@
         `${$t('log-in')} / ${$t('sign-up')}`
       }}</span>
       <q-tooltip v-if="isMobileScreen"> {{ $t('log-in') }} </q-tooltip>
-      <q-icon name="person" v-if="isMobileScreen" />
+      <q-icon v-if="isMobileScreen" name="person" />
     </q-btn>
     <q-btn v-if="authStore.isAuthenticated" class="user-icon" round flat>
       <q-avatar>
@@ -66,21 +66,21 @@
         <q-list style="min-width: 140px">
           <q-item
             v-if="authStore.user.emailVerified"
-            clickable
             v-close-popup
+            clickable
             :to="`/mypage/profile`"
           >
             <q-item-section>{{ $t('profile') }}</q-item-section>
           </q-item>
-          <q-item v-else clickable v-close-popup :to="`/mypage/profile`">
+          <q-item v-else v-close-popup clickable :to="`/mypage/profile`">
             <q-item-section class="text-red" @click="$emit('varifyEmail')">{{
               $t('message.1003')
             }}</q-item-section>
           </q-item>
-          <q-item clickable v-close-popup @click="$emit('handleOption')">
+          <q-item v-close-popup clickable @click="$emit('handleOption')">
             <q-item-section>{{ $t('setting') }}</q-item-section>
           </q-item>
-          <q-item clickable v-close-popup @click="$emit('handleLogout')">
+          <q-item v-close-popup clickable @click="$emit('handleLogout')">
             <q-item-section>{{ $t('sign-out') }}</q-item-section>
           </q-item>
         </q-list>

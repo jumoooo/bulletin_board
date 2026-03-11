@@ -121,7 +121,7 @@ export async function deletePost(id) {
  * 3] 게시글 좋아요 조회
  */
 export async function addLike(uid, postId) {
-  setDoc(doc(db, 'post_likes', `${uid}_${postId}`), {
+  await setDoc(doc(db, 'post_likes', `${uid}_${postId}`), {
     uid,
     postId,
     createdAt: serverTimestamp(),
@@ -129,7 +129,7 @@ export async function addLike(uid, postId) {
 }
 
 export async function removeLike(uid, postId) {
-  deleteDoc(doc(db, 'post_likes', `${uid}_${postId}`));
+  await deleteDoc(doc(db, 'post_likes', `${uid}_${postId}`));
 }
 
 export async function hasLike(uid, postId) {

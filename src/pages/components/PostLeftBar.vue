@@ -3,8 +3,8 @@
     <q-card flat bordered>
       <q-list bordered separator>
         <q-item
-          clickable
           v-ripple
+          clickable
           :active="category === null"
           @click="changeCategory(null)"
         >
@@ -13,8 +13,8 @@
         <q-item
           v-for="cate in categories"
           :key="cate.value"
-          clickable
           v-ripple
+          clickable
           :active="category === cate.value"
           @click="changeCategory(cate.value)"
         >

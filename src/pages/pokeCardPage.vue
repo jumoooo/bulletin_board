@@ -3,10 +3,10 @@
     <div class="main-wrap">
       <div class="col q-gutter-y-lg">
         <pokeHeader
-          :isLoading="isLoading"
+          v-model:card-name="cardName"
+          :is-loading="isLoading"
           :placeholder="$t('message.1080')"
-          v-model:cardName="cardName"
-          @enterPress="searchCard"
+          @enter-press="searchCard"
         />
         <!-- message.1080 = '* 예시 : Ditto'-->
       </div>

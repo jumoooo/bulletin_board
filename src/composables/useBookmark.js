@@ -1,3 +1,4 @@
+import { Notify } from 'quasar';
 import { useAuthStore } from 'src/stores/auth';
 import { storeToRefs } from 'pinia';
 import { readonly, ref, watch } from 'vue';
@@ -21,7 +22,12 @@ export const useBookmark = (id, options) => {
 
   const toggleBookmark = async () => {
     if (isAuthenticated.value === false) {
-      alert('로그인 후 이용 가능합니다.');
+      Notify.create({
+        type: 'warning',
+        message: '로그인 후 이용 가능합니다.',
+        timeout: 3000,
+        position: 'top',
+      });
       return;
     }
     if (isBookmark.value) {

@@ -7,7 +7,7 @@
           <SidebarMenu :items="menuItems" />
         </div>
       </section>
-      
+
       <!-- 메인 컨텐츠 -->
       <div class="mypage-content col-md-9 col-12">
         <router-view />

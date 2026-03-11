@@ -35,7 +35,7 @@ export async function signUpWithEmail({ email, password }) {
     displayName: email.split('@')[0],
     photoURL: generateDefaultPhotoURL(user.uid),
   });
-  sendEmailVerification(auth.currentUser);
+  await sendEmailVerification(auth.currentUser);
 }
 
 export function generateDefaultPhotoURL(uid) {
@@ -59,14 +59,14 @@ export async function sendVerificationEmail() {
   await sendEmailVerification(auth.currentUser);
 }
 
-export async function updateuserProfile(displayName) {
+export async function updateUserProfile(displayName) {
   await updateProfile(auth.currentUser, {
     displayName,
   });
   await updateDoc(doc(db, 'users', auth.currentUser.uid), { displayName });
 }
 
-export async function updateuserEmail(email) {
+export async function updateUserEmail(email) {
   await updateEmail(auth.currentUser, email);
   await updateDoc(doc(db, 'users', auth.currentUser.uid), { email });
 }

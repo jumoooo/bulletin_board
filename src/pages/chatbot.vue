@@ -4,7 +4,7 @@
   </div>
   <div class="chat-thread">
     <div id="thread-main">
-      <div class="main-title" v-if="!isChatUse">
+      <div v-if="!isChatUse" class="main-title">
         {{ '무슨작업을 하고 계세요?' }}
       </div>
     </div>

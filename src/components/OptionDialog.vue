@@ -2,25 +2,28 @@
   <q-dialog
     class="modal"
     v-bind="$attrs"
-    @hide="onHide"
     transition-show="none"
     transition-hide="none"
     position="standard"
+    @hide="onHide"
   >
     <q-card class="option-wrap column">
       <q-toolbar>
         <q-avatar style="width: 30px; height: 30px">
-          <img src="https://cdn-icons-png.flaticon.com/128/17/17789.png" alt="옵션 아이콘 이미지"/>
+          <img
+            src="https://cdn-icons-png.flaticon.com/128/17/17789.png"
+            alt="옵션 아이콘 이미지"
+          />
         </q-avatar>
         <q-toolbar-title>{{ $t('option') }}</q-toolbar-title>
         <q-btn v-close-popup flat round dense icon="close" />
       </q-toolbar>
       <q-separator />
-      <q-form @submit.prevent="handleSubmit" class="col column">
+      <q-form class="col column" @submit.prevent="handleSubmit">
         <q-card-section class="q-gutter-y-sm col">
           <q-select
-            filled
             v-model="languageModel"
+            filled
             :options="languages"
             :label="$t('language')"
             emit-value

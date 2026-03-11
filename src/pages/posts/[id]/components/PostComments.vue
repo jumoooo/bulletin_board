@@ -6,12 +6,12 @@
     <div v-if="isActive">
       <q-form @submit.prevent="handleAddComment">
         <q-input
+          ref="focusInput"
           v-model="message"
           type="textarea"
           outlined
           hide-bottom-space
           :placeholder="messagePlaceholer"
-          ref="focusInput"
         />
         <div class="flex justify-end q-gutter-x-sm q-mt-sm">
           <q-btn
@@ -31,7 +31,7 @@
       </q-form>
     </div>
 
-    <BaseCard v-if="!isActive" @click="toggleActive" class="cursor-pointer">
+    <BaseCard v-if="!isActive" class="cursor-pointer" @click="toggleActive">
       <q-card-section class="flex items-center">
         <q-avatar>
           <img

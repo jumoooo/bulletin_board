@@ -4,13 +4,13 @@
       <q-card-section class="q-gutter-y-md">
         <!-- 제목 -->
         <div v-if="title" class="text-h6">{{ title }}</div>
-        
+
         <!-- 폼 입력 필드 슬롯 -->
         <slot></slot>
       </q-card-section>
-      
+
       <q-separator />
-      
+
       <q-card-actions>
         <q-space />
         <q-btn

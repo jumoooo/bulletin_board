@@ -59,9 +59,9 @@
         <template #body>
           <div class="flex-wrap row q-col-gutter-md flex flex-start">
             <div
-              class="col-12 col-sm-4"
               v-for="(data, index) in detailData"
               :key="index"
+              class="col-12 col-sm-4"
             >
               <div class="flip-container">
                 <Flipper>
@@ -74,11 +74,11 @@
                   </template>
                   <template #back>
                     <PortfolioCardDetail
-                      :workDate="data['workDate']"
+                      :work-date="data['workDate']"
                       :title="data['title']"
                       :category="data['category']"
-                      :detailContents="data['detailContents']"
-                      :detailID="'Board'"
+                      :detail-contents="data['detailContents']"
+                      :detail-i-d="'Board'"
                     />
                   </template>
                 </Flipper>

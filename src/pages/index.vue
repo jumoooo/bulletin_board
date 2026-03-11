@@ -42,6 +42,7 @@
 
 <script setup>
 import { computed, ref, watch } from 'vue';
+import { Notify } from 'quasar';
 
 import { getPosts } from 'src/services';
 import { useAsyncState } from '@vueuse/core';
@@ -91,14 +92,19 @@ watch(
   },
   {
     deep: true,
-    // immediate: true,
+    immediate: true,
   },
 );
 
 const postDialog = ref(false);
 const openWriteDialog = () => {
   if (!authStore.isAuthenticated) {
-    alert('로그인 후 이용 가능합니다.');
+    Notify.create({
+      type: 'warning',
+      message: '로그인 후 이용 가능합니다.',
+      timeout: 3000,
+      position: 'top',
+    });
     return;
   }
   postDialog.value = true;

@@ -21,7 +21,7 @@
     <template v-for="mainTab in mainTabs" :key="mainTab.name">
       <q-tab-panel :name="mainTab['name']" class="q-pa-none">
         <q-splitter v-model="splitterModel" :horizontal="isMobileScreen">
-          <template v-slot:before>
+          <template #before>
             <q-tabs
               v-model="currentInnerTab"
               :vertical="!isMobileScreen"
@@ -47,7 +47,7 @@
             </q-tabs>
           </template>
           <!--slot before-->
-          <template v-slot:after>
+          <template #after>
             <q-tab-panels
               v-model="currentInnerTab"
               animated

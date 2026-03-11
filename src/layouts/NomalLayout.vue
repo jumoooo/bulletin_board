@@ -2,10 +2,10 @@
   <div class="main-layout bg-grey-2">
     <header bordered class="bg-white text-grey-9">
       <DefaultHeaderToolbar
-        @openAuthDialog="openAuthDialog"
-        @varifyEmail="varifyEmail"
-        @handleOption="handleOption"
-        @handleLogout="handleLogout"
+        @open-auth-dialog="openAuthDialog"
+        @varify-email="varifyEmail"
+        @handle-option="handleOption"
+        @handle-logout="handleLogout"
       />
     </header>
     <section :style="pageContainerStyless" class="content-section">

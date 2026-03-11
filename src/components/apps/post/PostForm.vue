@@ -42,7 +42,7 @@
       <q-separator />
       <q-card-actions align="right">
         <slot name="actions">
-          <q-btn flat :label="$t('cancel')" v-close-popup />
+          <q-btn v-close-popup flat :label="$t('cancel')" />
           <q-btn
             type="submit"
             flat

@@ -54,13 +54,13 @@
         <q-menu>
           <q-list style="min-width: 100px">
             <q-item
-              clickable
               v-close-popup
+              clickable
               :to="`/posts/${$route.params.id}/edit`"
             >
               <q-item-section>{{ $t('modify_01') }}</q-item-section>
             </q-item>
-            <q-item clickable v-close-popup @click="handleDeletePost">
+            <q-item v-close-popup clickable @click="handleDeletePost">
               <q-item-section>{{ $t('delete_01') }}</q-item-section>
             </q-item>
           </q-list>

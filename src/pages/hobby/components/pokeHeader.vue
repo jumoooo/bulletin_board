@@ -3,12 +3,12 @@
     <div class="text-h3 q-py-sm">Pokémon TCG Guru</div>
     <q-space />
     <q-input
+      v-model="cardNameModel"
       outlined
       :label="$t('message.1081')"
       :hint="$t('message.1082')"
       dense
       class="q-ma-lg row-3"
-      v-model="cardNameModel"
       :placeholder="placeholder"
       :loading="isLoading"
       @keypress.enter.prevent="$emit('enterPress')"

@@ -3,5 +3,12 @@
   "auth/missing-password": "누락된 비밀번호",
   "auth/wrong-password": "잘못된 비밀번호 (구글의 계정으로 로그인 해보시겠어요?)",
   "auth/user-not-found": "존재하지 않는 ID 입니다.",
-  "auth/requires-recent-login": "다시 로그인 하세요."
+  "auth/requires-recent-login": "다시 로그인 하세요.",
+  "auth/email-already-in-use": "이미 사용 중인 이메일입니다.",
+  "auth/weak-password": "비밀번호는 6자 이상이어야 합니다.",
+  "auth/too-many-requests": "요청이 너무 많습니다. 잠시 후 다시 시도해주세요.",
+  "auth/network-request-failed": "네트워크 연결을 확인해주세요.",
+  "auth/popup-closed-by-user": "로그인 창이 닫혔습니다.",
+  "permission-denied": "권한이 없습니다.",
+  "unavailable": "서비스를 일시적으로 사용할 수 없습니다."
 }

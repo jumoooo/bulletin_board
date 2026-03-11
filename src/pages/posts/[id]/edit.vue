@@ -13,7 +13,7 @@
         @submit="handleSubmit"
       >
         <template #actions>
-          <q-btn flat label="취소" v-close-popup @click="$router.back()" />
+          <q-btn v-close-popup flat label="취소" @click="$router.back()" />
           <q-btn
             type="submit"
             flat

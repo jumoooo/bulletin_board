@@ -9,6 +9,7 @@ firebase/node_modules/
 dist/
 firebase/dist/
 .cursor/
+docs/
 .cursorrules
 
 # Test coverage

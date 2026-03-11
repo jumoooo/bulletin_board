@@ -4,8 +4,8 @@
       <q-item
         v-for="item in items"
         :key="item.to"
-        clickable
         v-ripple
+        clickable
         :to="item.to"
       >
         <q-item-section avatar>
