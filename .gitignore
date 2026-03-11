@@ -15,6 +15,9 @@ docs/
 # Test coverage
 coverage/
 
+# UI check screenshots (local verification)
+screenshot/
+
 # Cordova related directories and files
 /src-cordova/node_modules
 /src-cordova/platforms
@@ -24,6 +27,9 @@ coverage/
 # Capacitor related directories and files
 /src-capacitor/www
 /src-capacitor/node_modules
+
+# Playwright MCP logs
+.playwright-mcp/
 
 # Log files
 npm-debug.log*

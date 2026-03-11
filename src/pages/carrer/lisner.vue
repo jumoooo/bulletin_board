@@ -576,8 +576,10 @@ watch(isMobileScreen, (newVal, oldVal) => {
   margin: 0 0 20px 0; // 여백 증가
 }
 
+/* S5: project-card overflow 방지 */
 .project-card {
-  height: 600px; // 높이 줄임
+  height: 600px;
+  overflow: hidden;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
   border: 1px solid #e9ecef;
@@ -648,8 +650,10 @@ watch(isMobileScreen, (newVal, oldVal) => {
 }
 
 @media (max-width: 768px) {
+  /* S5: 모바일 section overflow-x 방지 */
   .section-container {
-    padding: 50px 20px; // 여백 증가
+    padding: 50px 20px;
+    overflow-x: hidden;
   }
 
   .section-intro {
@@ -737,10 +741,11 @@ watch(isMobileScreen, (newVal, oldVal) => {
     height: 500px;
   }
 
+  /* S5: 480px service-group padding 추가 축소 */
   .service-group {
-    padding: 24px 16px; // 여백 증가
-    padding-bottom: 28px; // 여백 증가
-    gap: 24px; // 여백 증가
+    padding: 20px 12px;
+    padding-bottom: 24px;
+    gap: 20px;
   }
 }
 </style>

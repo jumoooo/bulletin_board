@@ -18,7 +18,13 @@ export const usePostQuery = () => {
   });
   const sort = computed({
     get: () => route.query.sort || 'createdAt',
-    set: val => router.push({ query: { ...route.query, sort: val } }),
+    set: val =>
+      router.push({
+        query: {
+          ...route.query,
+          sort: val === 'createdAt' ? undefined : val,
+        },
+      }),
   });
   const tags = computed({
     get: () => route.query.tags?.split(',') || [],

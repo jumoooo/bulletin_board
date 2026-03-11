@@ -19,8 +19,47 @@
           v-model:sort="sort"
           :category="getCategoriesLabel(category)"
         />
-        <PostList :items="items" />
-        <div v-intersection-observer="handleIntersectionObserver"></div>
+        <template v-if="isLoading">
+          <q-list bordered separator>
+            <q-item v-for="n in 6" :key="n" tag="div" class="bg-white q-pt-md">
+              <q-item-section avatar top>
+                <q-skeleton type="QAvatar" size="40px" />
+              </q-item-section>
+              <q-item-section>
+                <div class="flex items-center">
+                  <q-skeleton type="text" width="80px" />
+                  <q-skeleton
+                    type="rect"
+                    class="q-ml-sm rounded-borders"
+                    style="width: 50px; height: 24px"
+                  />
+                </div>
+                <q-skeleton
+                  type="text"
+                  width="70%"
+                  class="text-h6 q-mt-sm"
+                  style="height: 1.5rem"
+                />
+                <div class="text-caption q-mt-xs">
+                  <q-skeleton type="text" width="120px" />
+                </div>
+                <div class="q-my-sm">
+                  <q-skeleton type="text" width="100%" />
+                  <q-skeleton type="text" width="90%" />
+                </div>
+                <div class="row items-center">
+                  <div v-for="i in 4" :key="i" class="col-3 flex flex-center">
+                    <q-skeleton type="circle" size="28px" />
+                  </div>
+                </div>
+              </q-item-section>
+            </q-item>
+          </q-list>
+        </template>
+        <template v-else>
+          <PostList :items="items" />
+          <div v-intersection-observer="handleIntersectionObserver"></div>
+        </template>
       </template>
 
       <!-- 오른쪽: 태그 및 글쓰기 -->
@@ -71,7 +110,7 @@ const items = ref([]);
 const start = ref(null);
 const isLoadMore = ref(true);
 
-const { execute } = useAsyncState(getPosts, [], {
+const { execute, isLoading } = useAsyncState(getPosts, [], {
   immediate: false,
   throwError: true,
   onSuccess: result => {

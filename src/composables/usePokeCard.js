@@ -1,5 +1,11 @@
 import pokemon from 'pokemontcgsdk';
 
+// 취미 페이지에서만 로드되므로 여기서 초기화 (부트 제거로 초기 번들 크기 감소)
+const apiKey = import.meta.env.VITE_POKEMON_API_KEY;
+if (apiKey) {
+  pokemon.configure({ apiKey });
+}
+
 export const usePokeCard = () => {
   const getPokemonCards = async params => {
     if (params?.q.length > 0 && !/^[a-zA-Z0-9\s:]+$/.test(params?.q)) {
