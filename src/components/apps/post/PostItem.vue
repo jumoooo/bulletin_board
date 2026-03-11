@@ -22,12 +22,15 @@
           >#{{ tag }}</span
         >
       </div>
-      <div v-if="escapeHTML" class="text-grey-6 q-my-sm ellipsis-2-lines">
+      <div
+        v-if="escapeHTML"
+        class="text-grey-6 q-my-sm ellipsis-2-lines post-snippet-content"
+      >
         {{ item.content }}
       </div>
       <div
         v-else
-        class="text-grey-6 q-my-sm ellipsis-2-lines"
+        class="text-grey-6 q-my-sm ellipsis-2-lines post-snippet-content"
         v-html="item.content"
       ></div>
       <div class="row items-center">
@@ -117,4 +120,9 @@ const { state: postUser } = useAsyncState(
 );
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.post-snippet-content {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+</style>
