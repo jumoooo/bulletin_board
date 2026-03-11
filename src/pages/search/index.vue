@@ -1,30 +1,18 @@
 <template>
   <q-page padding>
     <template v-if="!ready">
-      <div class="search-layout row q-col-gutter-sm">
-        <!-- 검색바 스켈레톤 -->
+      <div class="search-layout main_wrap row q-col-gutter-sm">
+        <!-- 필터 스켈레톤: 웹 좌측, 모바일 검색 다음 -->
         <section
-          class="col-12 col-md-9 search-block order-1 order-md-2 q-mb-sm"
-        >
-          <q-skeleton type="rect" height="48px" class="rounded-borders" />
-        </section>
-        <!-- 좌측 필터 카드 스켈레톤 (refinement-card 구조) -->
-        <section
-          class="col-12 col-md-3 filters-block order-2 order-md-1 row q-col-gutter-sm"
+          class="col-12 col-md-3 filters-block order-2 order-md-1 row q-col-gutter-sm q-gutter-y-sm"
         >
           <div class="col-6 col-md-12">
             <q-card flat bordered class="q-pa-md refinement-card">
               <q-skeleton type="text" width="50%" class="q-mb-md" />
               <div class="refinement-list-scroll">
-                <div v-for="i in 4" :key="i" class="flex items-center q-mb-sm">
-                  <q-skeleton
-                    type="rect"
-                    style="width: 18px; height: 18px"
-                    class="q-mr-sm rounded-borders"
-                  />
-                  <q-skeleton type="text" :width="`${60 + i * 10}%`" />
-                  <q-skeleton type="circle" size="18px" class="q-ml-auto" />
-                </div>
+                <q-skeleton type="text" width="80%" />
+                <q-skeleton type="text" width="70%" />
+                <q-skeleton type="text" width="90%" />
               </div>
             </q-card>
           </div>
@@ -32,21 +20,23 @@
             <q-card flat bordered class="q-pa-md refinement-card">
               <q-skeleton type="text" width="40%" class="q-mb-md" />
               <div class="refinement-list-scroll">
-                <div v-for="i in 4" :key="i" class="flex items-center q-mb-sm">
-                  <q-skeleton
-                    type="rect"
-                    style="width: 18px; height: 18px"
-                    class="q-mr-sm rounded-borders"
-                  />
-                  <q-skeleton type="text" :width="`${50 + i * 10}%`" />
-                  <q-skeleton type="circle" size="18px" class="q-ml-auto" />
-                </div>
+                <q-skeleton type="text" width="75%" />
+                <q-skeleton type="text" width="60%" />
+                <q-skeleton type="text" width="85%" />
               </div>
             </q-card>
           </div>
         </section>
-        <!-- 우측 리스트 스켈레톤 (PostItem 구조) -->
-        <section class="col-12 col-md-9 list-block order-3 order-md-2 q-mt-sm">
+        <!-- 검색바 스켈레톤: 모바일 최상단 -->
+        <section
+          class="col-12 col-md-9 search-block main_content_wrap order-1 order-md-2 q-mb-sm"
+        >
+          <q-skeleton type="rect" height="48px" class="rounded-borders" />
+        </section>
+        <!-- 리스트 스켈레톤 -->
+        <section
+          class="col-12 col-md-9 list-block main_content_wrap order-3 order-md-2 q-mt-sm"
+        >
           <q-separator spaced />
           <q-list bordered separator>
             <q-item v-for="n in 6" :key="n" tag="div" class="bg-white q-pt-md">
@@ -114,8 +104,21 @@ const SearchContent = defineAsyncComponent(() => import('./SearchContent.vue'));
 </script>
 
 <style lang="scss" scoped>
-/* 스켈레톤 refinement 카드: SearchContent와 동일한 모바일 레이아웃 */
-@media (max-width: 1023px) {
+/* 스켈레톤: SearchContent와 동일한 모바일 레이아웃 (크기 고정, 스크롤) */
+@media (max-width: 786px) {
+  :deep(.search-layout) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  :deep(.search-block) {
+    order: 1;
+  }
+  :deep(.filters-block) {
+    order: 2;
+  }
+  :deep(.list-block) {
+    order: 3;
+  }
   :deep(.refinement-card) {
     height: 11.5rem;
     min-height: 11.5rem;
@@ -126,6 +129,21 @@ const SearchContent = defineAsyncComponent(() => import('./SearchContent.vue'));
     max-height: 8rem;
     overflow-y: auto;
     overflow-x: hidden;
+  }
+}
+@media (min-width: 768px) {
+  :deep(.search-layout) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  :deep(.filters-block) {
+    order: 1;
+  }
+  :deep(.search-block) {
+    order: 2;
+  }
+  :deep(.list-block) {
+    order: 3;
   }
 }
 </style>

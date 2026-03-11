@@ -1,0 +1,18 @@
+{
+  "servers": [
+    {
+      "id": "mc-test-1",
+      "name": "Hypixel",
+      "type": "minecraft",
+      "host": "mc.hypixel.net",
+      "port": 25565
+    },
+    {
+      "id": "mc-test-2",
+      "name": "CubeCraft",
+      "type": "minecraft",
+      "host": "play.cubecraft.net",
+      "port": 25565
+    }
+  ]
+}
